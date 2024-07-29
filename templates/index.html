@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投资游戏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .stats {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        .action-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .action-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>投资游戏</h1>
+    <div class="stats">
+        <p>当前资金: ¥{{ "%.2f"|format(player.money) }}</p>
+        <p>每日收入: ¥{{ "%.2f"|format(player.daily_income) }}</p>
+        <p>拥有资产: {{ player.assets }}</p>
+        <p>拥有公司: {{ player.companies }}</p>
+    </div>
+    <div class="actions">
+        <a href="{{ url_for('buy_asset') }}" class="action-btn">购买资产 (¥500)</a>
+        <a href="{{ url_for('create_company') }}" class="action-btn">创建公司 (¥2000)</a>
+    </div>
+</body>
+</html>
